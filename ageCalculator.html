@@ -165,10 +165,18 @@
             else{
                 yearDiff = yearNow-year-1;
                 monthDiff = 12-month+monthNow-1;
-                let dayInst = new Date(yearNow,monthNow-1,0);
-                dayInst = dayInst.getDate();
-                console.log(dayInst);
-                dayDiff = dayInst-date+dayNow;
+                if(dayNow<date){
+                    let dayInst = new Date(yearNow,monthNow-1,0);
+                    dayInst = dayInst.getDate();
+                    // console.log(dayInst);
+                    dayDiff = dayInst-date+dayNow;
+                }
+                else if(dayNow === date){
+                    dayDiff = 0;
+                }
+                else{
+                    dayDiff = dayNow-date;
+                }  
             }
 
             document.getElementById('value-up1').innerHTML = yearDiff;
