@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgeCalculator</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        p{
+            text-align: center;
+            margin: 0;
+            font-family: Arial;
+        }
+        .outer{
+            width: 100%;
+            height: 230px;
+            background-color: rgba(180, 6, 249, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .heading1{
+            color: white;
+            margin-bottom:40px ;
+        }
+        .date-container{
+            width: 250px;
+            height: 40px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px rgb(0,0,0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #date-input{
+            height: 20px;
+            background-color: rgb(220, 220, 220);
+            border: none;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-right: 10px;
+            padding: 2px 8px;
+            cursor: pointer;
+        }
+        #calculator-button{
+            background-color:rgba(180, 6, 249, 1) ;
+            border: none;
+            border-radius: 2px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+        .year-month-day{
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .small-container{
+            height: 50px;
+            width: 60px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 3px;
+            box-shadow: 2px 2px 5px rgb(0,0,0);
+        }
+        #value-up1,#value-up2,#value-up3{
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        #value-down{
+            font-size: 7px;
+        }
+    </style>
+</head>
+<body>
+     <div class="outer">
+        <h3 class="heading1">AGE CALCULATOR</h3>
+        <div class="date-container">
+            <input type="date" name="" id="date-input">
+            <button id="calculator-button" onclick="calculateAge();">Calculator</button>
+        </div>
+        <div class="year-month-day">
+            <div class="small-container">
+                <p id="value-up1">00</p>
+                <p id="value-down">YEAR</p>
+            </div>
+            <div class="small-container">
+                <p id="value-up2">00</p>
+                <p id="value-down">MONTH</p>
+            </div>
+            <div class="small-container">
+                <p id="value-up3">00</p>
+                <p id="value-down">DAY</p>
+            </div>
+        </div>
+     </div>
+
+     <script>
+        function calculateAge(){
+            let bornDate = document.getElementById('date-input');
+            let dateValue= bornDate.value;
+            let [year, month, date] = dateValue.split('-');
+            year = Number(year);
+            month = Number(month);
+            date = Number(date);
+            console.log(date,month,year);
+            let currentDate = new Date;
+            const dayNow = currentDate.getDate();
+            const monthNow = currentDate.getMonth()+1;
+            const yearNow = currentDate.getFullYear();
+
+            console.log(dayNow,monthNow,yearNow);
+
+            if(yearNow<year){
+                alert("Enter details correctly");
+                return 0;
+            }
+
+            let dayDiff=0;
+            let monthDiff=0;
+            let yearDiff=0;
+            if(monthNow>month){
+                yearDiff = yearNow-year;
+                if(dayNow<date){
+                    let dayInst = new Date(yearNow,monthNow-1,0);
+                    dayInst = dayInst.getDate();
+                    console.log(dayInst);
+                    dayDiff = dayInst-date+dayNow;
+                    monthDiff =monthNow-month-1;
+                }
+                else{
+                    monthDiff = monthNow-month;
+                    dayDiff = dayNow-date;
+                }
+            }
+            else if(monthNow === month){
+                if(dayNow>date){
+                    monthDiff = 0;
+                    yearDiff = yearNow-year;
+                    dayDiff = dayNow-date;
+                }
+                else if(dayNow === date){
+                    monthDiff = 0;
+                    yearDiff = yearNow-year;
+                    dayDiff = 0;
+                }
+                else{
+                    let dayInst = new Date(yearNow,monthNow-1,0);
+                    dayInst = dayInst.getDate();
+                    dayDiff = dayInst-date+dayNow;
+                    yearDiff = yearNow-year-1;
+                    monthDiff = 11;
+                }
+            }
+            else{
+                yearDiff = yearNow-year-1;
+                monthDiff = 12-month+monthNow-1;
+                let dayInst = new Date(yearNow,monthNow-1,0);
+                dayInst = dayInst.getDate();
+                console.log(dayInst);
+                dayDiff = dayInst-date+dayNow;
+            }
+
+            document.getElementById('value-up1').innerHTML = yearDiff;
+            document.getElementById('value-up2').innerHTML = monthDiff;
+            document.getElementById('value-up3').innerHTML = dayDiff;
+            
+        }
+     </script>
+</body>
+</html>

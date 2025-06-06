@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment10b</title>
+    <style>
+        body{
+            font-family: Arial;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .label1{
+            color: rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <h3 style="margin-bottom: 50px;">Mobile Number Validation using JavaScript</h3>
+    <div style="margin-bottom: 50px;">
+        <label for="input1" class="label1" >Enter Mobile Number</label>
+        <input type="text" placeholder="Enter 10 digit Mobile Num" id="input1" onkeydown="enterValidate(event);">
+    </div>
+    <button onclick="Validate();">Validate</button>
+
+    <script>
+        
+        function Validate(){
+            let inputNumber = document.getElementById('input1');
+            if(inputNumber.value.length===0){
+                alert("Enter the Number and ask for Validate!");
+                inputNumber.value = '';
+            }
+            else if(inputNumber.value.length<10){
+                alert('Not a valid number. Please Re enter the number!');
+                inputNumber.value = '';
+            }
+            else{
+                alert("The Number is valid!");
+                inputNumber.value = '';
+            }
+        }
+
+        function enterValidate(event){
+            if(event.key === 'Enter'){
+                Validate();
+            }
+        }
+    </script>
+    
+</body>
+</html>

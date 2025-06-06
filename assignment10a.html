@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment10a</title>
+    <style>
+        body{
+            width: 500px;
+        }
+        .outer{
+            width: 500px;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: space-between; */
+        }
+        .p1{
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #id1{
+            border: 2px solid green;
+        }
+        div{
+            margin-bottom: 20px;
+        }
+        #textarea1{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">Registration Form</p>
+    <div class="outer">
+        <div>
+            Name : &nbsp; <input type="text" id="id1" required> 
+            &nbsp;
+            <strong style="color: green;">This field is required</strong>
+        </div>
+        <div>
+            Email : &nbsp; <input type="text" id="id1" required> 
+            &nbsp;
+            <strong style="color: green;">A valid  email address is required</strong>
+        </div>
+        <div>
+            Website : &nbsp; <input type="text" id="id1" required> 
+            &nbsp;
+            <strong style="color: green;">A valid url is required</strong>
+        </div>
+        <div style="display: flex;">
+            Message : &nbsp;<textarea name="" id="textarea1" rows="4" required></textarea>
+            &nbsp;
+            <strong style="color: green;">This field is required</strong>
+        </div>
+        <input type="submit" style="margin-left: 73px;">
+    </div>
+</body>
+</html>
