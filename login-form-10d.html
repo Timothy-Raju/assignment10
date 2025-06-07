@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment10d</title>
+    <style>
+        body{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+        .outer{
+            height: 240px;
+            width: 240px;
+            background-color: rgb(230,230,230);
+            border-radius: 5px;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .heading1{
+            color: rgba(0,0,0,0.8);
+        }
+        .container-username{
+            display: flex;
+            margin-bottom: 12px;
+        }
+        .user-icon-container{
+            padding: 4px 5px;
+            background-color: rgba(182, 182, 182,0.8);
+            border: 1px solid gray;
+            border-radius: 2px;
+            padding-right: 6px ;
+            margin-right: -1px;
+        }
+        #user-icon{
+            height: 10px;
+        }
+        #password-icon{
+            height: 10px;
+        }
+        #username{
+            border: 1px solid gray;
+            border-left: none;
+            padding-left:5px ;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-left: -1px;
+            width: 180px;
+        }
+        .button1{
+            width: 210px;
+            border: none;
+            color: white;
+            background-color: rgba(0,0,255,0.7);
+            font-size: 12px;
+            height: 30px;
+            border-radius: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        #checkbox1{
+            margin: 0;
+        }
+        .rm-span{
+            font-family: arial;
+            font-size: 9px;
+            color: rgba(0,0,0,0.6);
+            font-weight: 550;
+        }
+        .last-inner{
+            width:210px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .fp{
+            font-size: 9px;
+            font-family: arial;
+            color: blue; 
+            margin: 0;
+            cursor: pointer;
+        }
+        .outer-para{
+            font-size: 10px;
+            text-align: center;
+        }
+        .outer-span{
+            color: blue;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <h2 class="heading1"><i>Instagram</i></h2>
+        <div class="container-username">
+            <div class="user-icon-container">
+                <img src="user_icon.jpg" alt="imageNotFound" id="user-icon">
+            </div>
+            <input type="text" id="username" placeholder="Username" required>            
+        </div>
+
+        <div class="container-username">
+            <div class="user-icon-container">
+                <img src="password_icon.jpg" alt="imageNotFound" id="password-icon">
+            </div>
+            <input type="password" id="username" placeholder="Password" required>            
+        </div>
+        <button class="button1">Log in</button>
+        <div class="last-inner">
+            <div>
+                <input type="checkbox" id="checkbox1">
+                <span class="rm-span">Remember me</span>
+            </div>
+            <p class="fp">Forgot Password?</p>
+        </div>
+    </div>
+    <p class="outer-para">Don't have an account! <span class="outer-span">Sign up here.</span></p>
+</body>
+</html>
